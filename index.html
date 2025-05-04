@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DerevnyaMap</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+    <div class="wrapper">
+        <div id="map_logo">
+            <img src="points_imgs/derevnyalogo.png" alt="DerevnyaMap Logo">
+        </div>
+        <!-- Карта -->
+        <div id="map_main" class="map"></div>
+        <div id="voyazh_map" class="map"></div>
+        <div id="vodopad_zhelaniy_map" class="map"></div>
+        <div id="gostevoy_dom_map" class="map"></div>
+        <div id="fazanariy_map" class="map"></div>
+        <div id="olenya_ferma_map" class="map"></div>
+
+
+        <!-- Контент -->
+        <div class="box">
+            <!-- информация о проекте -->
+            <div class="field" id="welcome_field">
+                <div class="page_title">
+                    <h3>DerevnyaMap</h3>
+                </div>
+                <div class="main_inf">
+                    <h3>О проекте</h3>
+                    <p>DerevnyaMap собирает на одной интерактивной карте проверенные средства размещения в сельской местности — от старинных усадеб до современных эко‑лофтов. Мы лично общаемся с хозяевами, чтобы убедиться в качестве сервиса, публикуем реальные фото и показываем, что есть рядом: озёра, лесные тропы, баня, фермерские лавки. Туристу не нужно перелопачивать объявления: фильтры по расстоянию, цене и активностям помогут выбрать идеальный отдых за три клика. Владельцы объектов получают возможность размещения и поток гостей без хлопот с рекламой.</p>
+                    <button class="add_button" onclick="window.location.href='add_object.html'">Добавить гостиницу</button>
+                </div>
+                <!-- Фильтры -->
+                <div class="filters">
+                    <h3>Фильтры</h3>
+                    <select id="accreditation_filter">
+                        <option value="all">Все гостиницы</option>
+                        <option value="accredited">Только аккредитованные</option>
+                        <option value="not_accredited">Только неаккредитованные</option>
+                    </select>
+                    <select id="stars_filter">
+                        <option value="all">Все звёзды</option>
+                        <option value="3stars">3 звезды</option>
+                        <option value="4stars">4 звезды</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Описание Вояж -->
+            <div class="field animated" id="field_voyazh" style="display: none;">
+                <div class="page_title">
+                    <h3>Вояж</h3>
+                </div>
+                <div class="main_inf">
+                    <p><strong>Адрес:</strong> ул. Войтика, 39, село Александровское</p>
+                    <p><strong>Звёздность:</strong> 3 звезды</p>
+                    <p><a href="https://yandex.ru/maps/org/voyazh/1115370007" target="_blank" style="display: inline-block; width: 290px;  border-radius: 9px; margin: 0px; padding: 2px; background-color: #cab70d; border: none; cursor: pointer; font-weight: bold; transition: transform 0.2s ease; font-family: 'Arial Black', Gadget, sans-serif; color: rgb(12, 12, 12); text-decoration: none; text-align: center;">Посмотреть на карте</a></p>
+                    <img src="points_imgs/info_image/voyazh.png" alt="Вояж">
+                    <button class="back_button" onclick="showMain()">Назад</button>
+                    <button class="book_button">Забронировать</button>
+                </div>
+            </div>
+
+            <!-- Описание Водопад желаний -->
+            <div class="field animated" id="field_vodopad_zhelaniy" style="display: none;">
+                <div class="page_title">
+                    <h3>Водопад желаний</h3>
+                </div>
+                <div class="main_inf">
+                    <p><strong>Адрес:</strong> Красноармейская ул., 618А, село Александровское</p>
+                    <p><strong>Звёздность:</strong> 4 звезды</p>
+                    <p><a href="https://yandex.ru/maps/org/vodopad_zhelaniy/1130292378" target="_blank" style="display: inline-block; width: 390px; border-radius: 9px; margin: 0px; padding: 2px; background-color: #cab70d; border: none; cursor: pointer; font-weight: bold; transition: transform 0.2s ease; font-family: 'Arial Black', Gadget, sans-serif; color: rgb(12, 12, 12); text-decoration: none; text-align: center;">Посмотреть на карте</a></p>
+                    <img src="points_imgs/info_image/vodopad_zhelaniy.png" alt="Водопад желаний">
+                    <button class="back_button" onclick="showMain()">Назад</button>
+                    <button class="book_button">Забронировать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=5ccd125e-76a3-4f96-a34b-54f9197c0919&lang=ru_RU"></script>
+<script src="main_map_script.js"></script>
+<script src="voyazh.js"></script>
+<script src="vodopad_zhelaniy.js"></script>
+<script src="gostevoy_dom.js"></script>
+<script src="fazanariy.js"></script>
+<script src="olenya_ferma.js"></script>
+
+
+
+<div id="tooltip" class="custom-tooltip" style="display: none;">
+    <img id="tooltip-img" src="" alt="">
+    <h4 id="tooltip-title"></h4>
+    <p id="tooltip-text"></p>
+</div>
+
+</body>
+</html>

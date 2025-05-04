@@ -1,0 +1,421 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #1b3f00e7; /* Обновили цвет фона */
+  font-family: 'MS Reference Sans Serif', sans-serif;
+}
+
+.wrapper {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrapper div {
+  border-radius: 20px; /* Радиус углов для всех div внутри .wrapper */
+}
+
+.map {
+  width: 100%;
+  height: 97vh;
+}
+
+#map_main {
+  display: flex;
+}
+
+#voyazh_map, #vodopad_zhelaniy_map, #gostevoy_dom_map, #fazanariy_map, #olenya_ferma_map {
+  display: none;
+}
+
+.box {
+  box-sizing: border-box;
+  margin: 0 1em;
+  background-color: #458f4d;
+  width: 60%;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  font-family: 'MS Reference Sans Serif', sans-serif;
+}
+
+.field {
+  width: 100%;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2%;
+}
+
+#welcome_field {
+  display: flex;
+}
+
+#field_voyazh, #field_vodopad_zhelaniy {
+  display: none;
+}
+
+.field.animated {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.field.animated.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back_button {
+  position: sticky;
+  height: 4em;
+  width: 8em;
+  background-color: yellow;
+  bottom: 0;
+  left: 0.01em;
+  opacity: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'MS Reference Sans Serif', sans-serif;
+  border-radius: 10px;
+}
+
+.back_button:hover {
+  opacity: 100%;
+  transform: scale(1.05)
+
+}
+
+.book_button {
+  position: sticky;
+  height: 4em;
+  width: 9em;
+  background-color: yellow;
+  bottom: 0;
+  left: 0.01em;
+  opacity: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'MS Reference Sans Serif', sans-serif;
+  border-radius: 10px;
+}
+
+.book_button:hover {
+  opacity: 100%;
+  transform: scale(1.05)
+}
+
+.page_title {
+  width: 100%;
+  margin-bottom: 0.5em;
+  text-align: center;
+  padding: 2%;
+  font-size: 2em;
+  color: white;
+  background-color: #376b1a;
+  transition: background-image 1.5s ease, opacity 0.5s ease;
+  position: relative; 
+}
+
+/* Псевдоэлемент для фона */
+.page_title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; 
+  transition: opacity 0.5s ease; /* Плавное появление */
+}
+
+/* При наведении меняется фон */
+.page_title:hover::before {
+  background-image: url('background_images/Aleksandrovskoe.jpg');
+  opacity: 1; /* Плавно появляется */
+  border-radius: 20px;
+}
+
+
+.page_title h3 {
+  transition: opacity 0.5s ease; /* Плавное исчезновение текста */
+}
+
+/* При наведении скрываем текст */
+.page_title:hover h3 {
+  opacity: 0; /* Скрываем текст */
+}
+.add_inf {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  background-color: #376b1a;
+  text-align: center;
+  padding: 2%;
+  color: white;
+  overflow: auto;
+}
+
+
+
+.add_inf img {
+  display: block;
+  margin: 1em auto;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.main_inf {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  background-color: #376b1a;
+  text-align: center;
+  padding: 2%;
+  color: white;
+  overflow: auto;
+}
+
+
+
+.main_inf img {
+  display: block;
+  margin: 1em auto;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.filters {
+  width: 100%;
+  background-color: #feb509;
+  text-align: justify;
+  padding: 2%;
+  color: rgb(0, 0, 0);
+  margin-bottom: 1em;
+
+}
+
+.filters select {
+  margin: 5px;
+  padding: 5px;
+  width: 45%;
+  font-family: 'Arial Black', Gadget, sans-serif;
+}
+/* добавить гостиницу */
+.add_button {
+  transform: translate(0px, 190px);
+  width: 300px;
+  border-radius: 12px;
+  margin: 0px;
+  padding: 13px;
+  background-color: #cab70d;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+  font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+.add_button:hover {
+  transform: translate(0px, 190px) scale(1.03);
+  background-color: #fff453;
+}
+
+/* Стили для круглых меток */
+.ymaps-image {
+  border-radius: 50% !important;
+  border: 4px solid rgb(255, 0, 0) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover !important;
+}
+
+.onmap-image {
+  border-radius: 50% !important;
+  border: 4px solid rgb(255, 0, 0) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover !important;
+}
+
+.custom-tooltip {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+  background-color: #ffffffee;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 250px;
+  transition: opacity 0.2s ease;
+}
+
+.custom-tooltip img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.custom-tooltip h4 {
+  margin-bottom: 4px;
+  font-size: 1.1em;
+  color: #222;
+}
+
+.custom-tooltip p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #444;
+}
+
+/* Стили для страницы добавления гостиницы */
+body.add-object-page {
+  background-color: #ffffff; /* Белый фон для страницы добавления */
+  width: 100%;
+  margin: 0;
+  padding: 20px; /* Добавим отступы для страницы */
+}
+
+.add-object-page .wrapper {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Выравнивание по центру */
+}
+
+.add-object-page .box {
+  width: 22%; /* Ширина окна теперь 50% от родителя */
+  max-width: 700px; /* Ограничим максимальную ширину */
+  height: 700px; /* Убираем фиксированную высоту */
+  background-color: #376b1a;
+  border-radius: 20px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.add-object-page .field {
+  width: 100%;
+  max-width: 700px;
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px; /* Увеличим паддинги для комфорта */
+}
+
+.add-object-page .form-group {
+  margin-bottom: 15px; /* Увеличим отступы между полями */
+  width: 100%;
+}
+
+.add-object-page .form-group input, 
+.add-object-page .form-group select, 
+.add-object-page .form-group textarea {
+  width: 94%; /* Поля будут на всю ширину контейнера */
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+.add-object-page .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.add-object-page .submit-btn, 
+.add-object-page .back-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 80px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-object-page .submit-btn {
+  background-color: #09ff11;
+  color: white;
+}
+
+.add-object-page .submit-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.add-object-page .back-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.add-object-page .back-btn:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .add-object-page .box {
+    width: 90%; /* Уменьшаем ширину на мобильных устройствах */
+  }
+  
+  .add-object-page .field {
+    padding: 10px;
+  }
+  
+  .add-object-page .form-group input, 
+  .add-object-page .form-group select, 
+  .add-object-page .form-group textarea {
+    font-size: 14px;
+  }
+}
+
+#map_logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: none;
+  padding: 5px;
+
+
+}
+
+#map_logo img {
+  height: 120px;
+  width: 120px;
+  display: block;
+}
+
+@media (max-width: 1300px) {
+  .wrapper {
+      flex-direction: column;
+  }
+  .map {
+      width: 100%;
+      height: 60vh;
+  }
+  .box {
+      margin: 1em auto;
+      width: 95%;
+  }
+}
+
+[class*="copyrights-pane"] {
+  display: none !important;
+}

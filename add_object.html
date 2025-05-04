@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru" class="add-object-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить гостиницу</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+    <div class="wrapper">
+        <div class="box">
+            <div class="field animated">
+                <div class="page_title">
+                    <h3>Добавить гостиницу</h3>
+                </div>
+                <!-- класс add_inf - отдельный от main_inf(страница с формой) -->
+                <div class="add_inf"> 
+                    <form action="https://formspree.io/f/xyzerkgw" method="POST">
+                        <div class="form-group">
+                            <label for="name" style="display: inline-block; width: auto;">Название гостиницы:</label>
+    <input type="text" id="name" name="Название гостиницы" required style="display: inline-block; width: 100%; max-width: 350px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Адрес:</label>
+                            <input type="text" id="address" name="адрес" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stars">Рейтинг:</label>
+                            <select id="stars" name="Рейтинг гостиницы">
+                                <option value="Не выбрано">Не выбрано</option>
+                                <option value="3 звезды">3 звезды</option>
+                                <option value="4 звезды">4 звезды</option>
+                                <option value="5 звезд">5 звёзд</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Описание:</label>
+                            <textarea id="description" name="Описание" rows="5" required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="submit-btn">Отправить</button>
+                            <button type="button" class="back-btn" onclick="window.location.href='index.html'">Назад</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    // Для анимации появления
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('.field').classList.add('active');
+    });
+</script>
+</body>
+</html>
