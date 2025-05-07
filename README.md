@@ -22,7 +22,7 @@
 1. Склонируй репозиторий:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/refteen/DerevnyaMap.git
    ```
 2. Открой `index.html` в браузере
 
